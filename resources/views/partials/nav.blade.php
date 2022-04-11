@@ -23,13 +23,13 @@
                                     <li class="dis_fx_cntr">
                                         <a href="/">HOME</a>
                                     </li>
-                                    @if(count($cat)>0)
+                                    {{-- @if(count($cat)>0)
                                         @foreach ($cat as $nav)
                                             <li class="dis_fx_cntr">
                                                 <a href="/category/{{$nav->categoryName}}/{{$nav->id}}">{{$nav->categoryName}}</a>
                                             </li>
                                         @endforeach
-                                    @endif
+                                    @endif --}}
                                     <li>
                                         <a href="gallery.html">gallery</a>
                                     </li>

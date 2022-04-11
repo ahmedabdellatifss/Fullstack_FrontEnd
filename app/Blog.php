@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
-use App\Models\Tag;
-use App\Models\Category;
-use App\Models\User;
+namespace App;
+use App\Tag;
+use App\Category;
+use App\User;
 
 
 use Illuminate\Support\Str;
