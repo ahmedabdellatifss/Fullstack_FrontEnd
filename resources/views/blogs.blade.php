@@ -1,6 +1,6 @@
 
 
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('title' , 'Our awesome home page title')
 

@@ -13,7 +13,7 @@
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="row">
 
-                    @if(count($category)>0)
+                    @if(isset($category) > 0 )
                         @foreach ($category as $cat)
                         <div class="col-12 col-md-4 col-lg-4">
                             <a href="">

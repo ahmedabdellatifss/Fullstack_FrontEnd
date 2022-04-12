@@ -32,11 +32,14 @@ class BlogController extends Controller
         return view('blogsingle')->with(['blog'=>$blogs , 'relatedBlogs'=>$relatedBlogs]);
     }
 
+        // #51
     public function compose(View $view)
     {
         $cat = Category::select('id','categoryName')->get('id' , 'categoryName');
         $view->with('cat', $cat);
     }
+
+
 
     public function categoryIndex(Request $request , $categoryName , $id){
         $blogs = Blog::with('user')->whereHas('cat' ,function ($q) use($id){ //#52

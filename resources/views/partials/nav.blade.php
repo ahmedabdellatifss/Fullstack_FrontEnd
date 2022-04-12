@@ -20,20 +20,17 @@
                         <div class="menu_right d-flex">
                             <div class="menu_right_list">
                                 <ul class="menu_right_ul d-flex">
+
                                     <li class="dis_fx_cntr">
                                         <a href="/">HOME</a>
                                     </li>
-                                    {{-- @if(count($cat)>0)
+                                    @if(isset($cat) > 0 )
                                         @foreach ($cat as $nav)
                                             <li class="dis_fx_cntr">
                                                 <a href="/category/{{$nav->categoryName}}/{{$nav->id}}">{{$nav->categoryName}}</a>
                                             </li>
                                         @endforeach
-                                    @endif --}}
-                                    <li>
-                                        <a href="gallery.html">gallery</a>
-                                    </li>
-
+                                    @endif
                                 </ul>
                             </div>
                             <!-- SEARCH Component -->

@@ -26,15 +26,15 @@ class Blog extends Model
 
     public function tag()
     {
-        return $this->belongsToMany(Tag::class, 'blogtags');
+        return $this->belongsToMany('App\Tag', 'blogtags');
     }
     public function cat()
     {
-        return $this->belongsToMany(Category::class, 'blogcategories');
+        return $this->belongsToMany('App\Category', 'blogcategories');
     }
     public function user()
     {
-        return $this->belongsTo(User::class)->select('id' , 'fullName' );
+        return $this->belongsTo('App\User')->select('id' , 'fullName' );
     }
 
 
