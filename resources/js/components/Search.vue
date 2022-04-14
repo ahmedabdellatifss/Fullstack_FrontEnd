@@ -1,6 +1,6 @@
 <template>
-    <div class="menu_srch d-flex" @click="showSearch = !showSearch">
-        <i class="fa fa-search search_btn"></i>
+    <div class="menu_srch d-flex" @click="showSearch = !showSearch" >
+        <i class="fa fa-search search_btn" ></i>
         <!-- SEARCH INPUT -->
         <div class="header_serch" @click.stop v-if="showSearch">
             <div class="header_serch_input">
