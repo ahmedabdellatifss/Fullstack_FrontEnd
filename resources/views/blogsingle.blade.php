@@ -265,32 +265,32 @@
                             <ul class="share_social_ul dis_flx">
                                 <li>
                                     <a class="fb" href="">
-                                        <i class="fab fa-facebook-f"></i>
+                                        <i class="fa fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="google" href="">
-                                        <i class="fab fa-google-plus-g"></i>
+                                        <i class="fa fa-google-plus-g"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="instgrm" href="">
-                                        <i class="fab fa-instagram"></i>
+                                        <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="twtr" href="">
-                                        <i class="fab fa-twitter"></i>
+                                        <i class="fa fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="skpye" href="">
-                                        <i class="fab fa-skype"></i>
+                                        <i class="fa fa-skype"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="utube" href="">
-                                        <i class="fab fa-youtube"></i>
+                                        <i class="fa fa-youtube"></i>
                                     </a>
                                 </li>
                         <!-- 		<li>

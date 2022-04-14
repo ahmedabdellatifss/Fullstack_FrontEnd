@@ -13,7 +13,9 @@
         <div class="row">
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="row">
-                    <h1 class='blogs-heading'>Explore all blogs from our awesome website.....</h1>
+                    <h1 class='blogs-heading'style='color: white;'>
+                        Explore all blogs from our awesome website
+                    </h1>
                 </div>
             </div>
         </div>

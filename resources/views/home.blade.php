@@ -16,7 +16,7 @@
                     @if(isset($category) > 0 )
                         @foreach ($category as $cat)
                         <div class="col-12 col-md-4 col-lg-4">
-                            <a href="">
+                            <a href="/category/{{$cat->categoryName}}/{{$cat->id}}">
                                 <div class="banner_box">
                                     <i class="fab fa-laravel"></i>
                                     <h3 class="banner_box_h3">{{$cat->categoryName}}</h3>

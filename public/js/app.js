@@ -1925,6 +1925,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      showSearch: false
+    };
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -37518,25 +37523,44 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass: "menu_srch d-flex",
+      on: {
+        click: function ($event) {
+          _vm.showSearch = !_vm.showSearch
+        },
+      },
+    },
+    [
+      _c("i", { staticClass: "fa fa-search search_btn" }),
+      _vm._v(" "),
+      _vm.showSearch
+        ? _c("div", { staticClass: "header_serch" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+          ])
+        : _vm._e(),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "menu_srch d-flex" }, [
-      _c("i", { staticClass: "fa fa-search search_btn" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "header_serch" }, [
-        _c("div", { staticClass: "header_serch_input" }, [
-          _c("input", { attrs: { type: "", name: "", placeholder: "Search" } }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "header_serch_i" }, [
-          _c("i", { staticClass: "fa fa-search" }),
-        ]),
-      ]),
+    return _c("div", { staticClass: "header_serch_input" }, [
+      _c("input", { attrs: { type: "", name: "", placeholder: "Search" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "header_serch_i" }, [
+      _c("i", { staticClass: "fa fa-search" }),
     ])
   },
 ]

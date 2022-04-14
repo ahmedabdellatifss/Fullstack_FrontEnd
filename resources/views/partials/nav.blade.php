@@ -11,7 +11,7 @@
                         <div class="logo">
                             <a href="home.html">
                                 <div class="logo_img">
-                                    <img src="img/logo.png" alt="image">
+                                    <img src="../../img/logo.png" alt="image">
                                 </div>
                             </a>
                         </div>

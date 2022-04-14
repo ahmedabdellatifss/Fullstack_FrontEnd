@@ -25,6 +25,8 @@ class BlogController extends Controller
             array_push($category_ids , $cat->id);
         }
 
+        // Get related artical With larvel whereHas filtering
+
         $relatedBlogs = Blog::with('user')->where('id', '!=' , $blogs->id)->whereHas('cat' ,function ($q) use($category_ids){ //#52
             $q->whereIn('category_id' , $category_ids);
         })->limit(5)->orderBy('id' , 'desc')->get(['id' , 'title' ,'slug','user_id' , 'featuredImage']);
@@ -42,14 +44,14 @@ class BlogController extends Controller
 
 
     public function categoryIndex(Request $request , $categoryName , $id){
-        $blogs = Blog::with('user')->whereHas('cat' ,function ($q) use($id){ //#52
+         $blogs = Blog::with('user')->whereHas('cat' ,function ($q) use($id){ //#53
             $q->where('category_id' , $id);
         })->orderBy('id' , 'desc')->select(['id' , 'title' ,'slug','user_id' , 'featuredImage'])->paginate(1);
-        return view('category')->with(['categoryName'=>$categoryName , 'blogs'=>$blogs]);
+        return view('category')->with(['categoryName' => $categoryName , 'blogs' =>$blogs]);
     }
 
     public function tagIndex(Request $request , $tagName , $id){
-        $blogs = Blog::with('user')->whereHas('tag' ,function ($q) use($id){ //#52
+        $blogs = Blog::with('user')->whereHas('tag' ,function ($q) use($id){ //#53
             $q->where('tag_id' , $id);
         })->orderBy('id' , 'desc')->select(['id' , 'title' ,'slug','user_id' , 'featuredImage'])->paginate(1);
         return view('tag')->with(['tagName'=>$tagName , 'blogs'=>$blogs]);
@@ -65,6 +67,7 @@ class BlogController extends Controller
     {
         $str = $request->str;
         $blogs= Blog::orderBy('id' , 'desc')->with(['cat' , 'user' , 'tag'])->select(['id', 'title' , 'post_excerpt','slug','user_id' , 'featuredImage']);
+        // use eloquent when instead of if to make code more readable
         $blogs->when($str!='' , function($q) use($str){
             $q->where('title' , 'LIKE' , "%{$str}%")
             ->orWhereHas('cat' , function($q) use($str){
@@ -76,6 +79,8 @@ class BlogController extends Controller
 
         });
         return $blogs->get();
+        //return view('blogs')->with(['blogs' => $blogs]);
+
 
         // if(!$str) return $blogs->get();
         //     $blogs->where('title' , 'LIKE' , "%{$str}%")

@@ -87,7 +87,7 @@
                 @endif
             </div>
 
-            {{ $blogs->links()}}
+            {!! $blogs->links()!!}
 
     </div>
     </div>
