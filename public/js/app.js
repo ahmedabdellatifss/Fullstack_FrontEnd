@@ -1927,11 +1927,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      showSearch: false
+      showSearch: false,
+      str: ''
     };
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  methods: {
+    searchBlog: function searchBlog() {
+      window.location = "/search?str=".concat(this.str);
+    }
   }
 });
 
@@ -37537,33 +37540,64 @@ var render = function () {
       _c("i", { staticClass: "fa fa-search search_btn" }),
       _vm._v(" "),
       _vm.showSearch
-        ? _c("div", { staticClass: "header_serch" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._m(1),
-          ])
+        ? _c(
+            "div",
+            {
+              staticClass: "header_serch",
+              on: {
+                click: function ($event) {
+                  $event.stopPropagation()
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "header_serch_input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.str,
+                      expression: "str",
+                    },
+                  ],
+                  attrs: { type: "text", placeholder: "Search" },
+                  domProps: { value: _vm.str },
+                  on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.searchBlog.apply(null, arguments)
+                    },
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.str = $event.target.value
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "header_serch_i",
+                  on: { click: _vm.searchBlog },
+                },
+                [_c("i", { staticClass: "fa fa-search" })]
+              ),
+            ]
+          )
         : _vm._e(),
     ]
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header_serch_input" }, [
-      _c("input", { attrs: { type: "", name: "", placeholder: "Search" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header_serch_i" }, [
-      _c("i", { staticClass: "fa fa-search" }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

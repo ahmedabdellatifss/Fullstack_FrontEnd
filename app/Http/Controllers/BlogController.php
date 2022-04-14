@@ -66,7 +66,7 @@ class BlogController extends Controller
     public function search(Request $request)
     {
         $str = $request->str;
-        $blogs= Blog::orderBy('id' , 'desc')->with(['cat' , 'user' , 'tag'])->select(['id', 'title' , 'post_excerpt','slug','user_id' , 'featuredImage']);
+        $blogs= Blog::orderBy('id' , 'desc')->with(['cat' , 'user'])->select(['id', 'title' , 'post_excerpt','slug','user_id' , 'featuredImage']);
         // use eloquent when instead of if to make code more readable
         $blogs->when($str!='' , function($q) use($str){
             $q->where('title' , 'LIKE' , "%{$str}%")
@@ -78,8 +78,10 @@ class BlogController extends Controller
             });
 
         });
-        return $blogs->get();
-        //return view('blogs')->with(['blogs' => $blogs]);
+        $blogs = $blogs->paginate(1);
+        $blogs = $blogs->appends($request->all());
+        return view('blogs')->with(['blog'=>$blogs ]);
+
 
 
         // if(!$str) return $blogs->get();

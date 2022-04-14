@@ -2,11 +2,11 @@
     <div class="menu_srch d-flex" @click="showSearch = !showSearch">
         <i class="fa fa-search search_btn"></i>
         <!-- SEARCH INPUT -->
-        <div class="header_serch" v-if="showSearch">
+        <div class="header_serch" @click.stop v-if="showSearch">
             <div class="header_serch_input">
-                <input type="" name="" placeholder="Search">
+                <input type="text" v-model="str" @keyup.enter="searchBlog" placeholder="Search">
             </div>
-            <div class="header_serch_i">
+            <div class="header_serch_i" @click="searchBlog">
                 <i class="fa fa-search"></i>
             </div>
         </div>
@@ -19,10 +19,13 @@
         data(){
             return {
                 showSearch : false,
+                str : ''
             }
         },
-        mounted() {
-            console.log('Component mounted.')
+        methods:{
+            searchBlog(){
+                window.location = `/search?str=${this.str}`
+            }
         }
     }
 </script>
